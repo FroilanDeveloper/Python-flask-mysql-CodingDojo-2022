@@ -1,0 +1,35 @@
+-- create 3 new dojos
+INSERT INTO dojos (name)
+VALUES ("Uzumaki Clan"),("Uchiha Clan"),("Hyuga Clan");
+
+-- delete 3 dojos
+Set SQL_SAFE_UPDATES = 0;
+DELETE FROM dojos;
+
+-- create 3 more dojos
+INSERT INTO dojos (name)
+VALUES ("Uzumaki Clan"),("Uchiha Clan"),("Hyuga Clan");
+
+-- create 3 ninjas
+INSERT INTO ninjas (first_name, last_name, age, Dojos_id)
+VALUES ('Naruto', 'Uzumaki', 32, 37), ('Minato', 'Uzumaki', 24, 37), ('Kushina', 'Uzumaki', 24, 37),
+('Sasuke', 'Uchiha', 33, 38), ('Itachi', 'Uchiha', 21, 38), ('Madara', 'Uchiha', 90, 38), ('Hinata', 'Hyuga', 33, 39),
+('Neji', 'Hyuga', 18, 39), ('Hiashi', 'Hyuga', 61, 39);
+
+SELECT *
+FROM ninjas;
+
+-- retrieve all ninjas from first dojo
+SELECT * FROM dojos
+LEFT JOIN ninjas ON Dojos.id = ninjas.Dojos_id
+WHERE Dojos.id = 37;
+
+-- retrieve all ninjas from last dojo
+SELECT * FROM dojos
+LEFT JOIN ninjas ON Dojos.id = ninjas.Dojos_id
+WHERE Dojos.id = 39;
+
+
+-- retrieve last ninjas dojo
+SELECT * FROM dojos
+WHERE Dojos.id= (SELECT Dojos_id FROM ninjas ORDER BY Dojos_id DESC LIMIT 1);

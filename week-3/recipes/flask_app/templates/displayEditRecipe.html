@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <title>EDIT</title>
+</head>
+<body>
+  <form action="/recipe/update/{{ recipe.id}}" method="POST" >
+    <div>
+      <label for="name">
+        Name:
+      </label>
+      <input type="text" id="names" name="names" value="{{recipe.names}}" />
+    </div>
+    <div>
+      <label for="descriptions">
+        Description
+      </label>
+      <textarea name="descriptions" id="descriptions" cols="30" rows="10">{{recipe.descriptions}}</textarea>
+    </div>
+    <div>
+      <label for="instructions">
+        instructions
+      </label>
+      <textarea name="instructions" id="instructions" cols="30" rows="10">{{recipe.instructions}}</textarea>
+    </div>
+    <div>
+      <label for="updated_at">
+        Date made on:
+      </label>
+      <input type="date" id="updated_at" name="updated_at" value="{{recipe.created_at}}" />
+    </div>
+    <div>
+      <label for="under_thirty">
+        Under 30 minutes?
+      </label>
+      <input type="radio" name="under_thirty" title="Whyisthisgivingmeerror" value="1" {% if recipe.under_thirty == 1 %} selected {% endif %}/> Yes
+      <input type="radio" name="under_thirty" title="Whyisthisgivingmeerror" value="0" {% if recipe.under_thirty == 0 %} selected {% endif %}> No
+    </div>
+    <div>
+      <button type="submit">
+        Create
+      </button>
+    </div>
+  </form>
+  <form action="/logout" method="POST">
+    <button type="submit">
+      Logout
+    </button>
+  </form>
+</body>
+</html>

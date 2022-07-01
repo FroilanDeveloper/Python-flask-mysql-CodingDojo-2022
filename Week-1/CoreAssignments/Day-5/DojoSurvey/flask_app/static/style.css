@@ -1,0 +1,17 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+
+form {
+  width: 400px;
+  text-align: center;
+  margin-top: 400px;
+  border: 2px solid black;
+}
+
+.Group {
+  padding: 20px;
+  
+
+}

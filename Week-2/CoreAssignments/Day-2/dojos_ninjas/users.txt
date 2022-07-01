@@ -1,0 +1,23 @@
+INSERT INTO users (first_name, last_name, email)
+VALUES ("Sasuke","Uchiha","eternalmangekyo@codingdojo.com"),
+("Madara","Uchiha","infinitetsukuyomi@pancakes.com"),
+("Itachi","Uchiha","amaterasu@gmail.com");
+
+
+SELECT * FROM users;
+
+SELECT * FROM users
+WHERE email = 'eternalmangekyo@codingdojo.com';
+
+SELECT * FROM users
+WHERE id = 3;
+
+UPDATE users SET last_name = "Uchiha"
+WHERE users.id = 3;
+
+
+DELETE FROM users
+WHERE users.id = 2;
+
+SELECT * FROM users
+ORDER BY first_name DESC;
